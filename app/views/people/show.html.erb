@@ -1,0 +1,94 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @person.first_name %>
+</p>
+
+<p>
+  <strong>Middle name:</strong>
+  <%= @person.middle_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @person.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @person.email %>
+</p>
+
+<p>
+  <strong>Office address:</strong>
+  <%= @person.office_address %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @person.phone %>
+</p>
+
+<p>
+  <strong>Rank description:</strong>
+  <%= @person.rank_description %>
+</p>
+
+<p>
+  <strong>Interest areas:</strong>
+  <%= @person.interest_areas %>
+</p>
+
+<p>
+  <strong>Department:</strong>
+  <%= @person.department_id %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @person.category_id %>
+</p>
+
+<p>
+  <strong>Au user name:</strong>
+  <%= @person.au_user_name %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @person.password_digest %>
+</p>
+
+<p>
+  <strong>Role:</strong>
+  <%= @person.role %>
+</p>
+
+<p>
+  <strong>Monday hours:</strong>
+  <%= @person.monday_hours %>
+</p>
+
+<p>
+  <strong>Tuesday hours:</strong>
+  <%= @person.tuesday_hours %>
+</p>
+
+<p>
+  <strong>Wednesday hours:</strong>
+  <%= @person.wednesday_hours %>
+</p>
+
+<p>
+  <strong>Thursday hours:</strong>
+  <%= @person.thursday_hours %>
+</p>
+
+<p>
+  <strong>Friday hours:</strong>
+  <%= @person.friday_hours %>
+</p>
+
+<%= link_to 'Edit', edit_person_path(@person) %> |
+<%= link_to 'Back', people_path %>
