@@ -1,5 +1,7 @@
 class Person < ActiveRecord::Base
 
+  validates_presence_of :first_name, :last_name
+
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|
       Person.create!(row.to_hash)

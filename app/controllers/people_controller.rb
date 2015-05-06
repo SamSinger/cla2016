@@ -10,6 +10,7 @@ class PeopleController < ApplicationController
     respond_to do |format|
       format.html 
       format.csv { render text: @people.to_csv }
+      format.json { render json: @people }
     end
   end
 
