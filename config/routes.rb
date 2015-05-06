@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  resources :people
+
+  get 'search/index'
+
+  resources :people do
+    collection { post :import }
+  end
 
   get 'welcome/home'
 

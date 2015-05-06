@@ -4,7 +4,18 @@ class PeopleController < ApplicationController
   # GET /people
   # GET /people.json
   def index
-    @people = Person.all
+    @search = PersonSearch.new(params[:search])
+    @people = @search.scope
+    
+    respond_to do |format|
+      format.html 
+      format.csv { render text: @people.to_csv }
+    end
+  end
+
+  def import
+    Person.import(params[:file])
+    redirect_to people_url, notice: "People imported"
   end
 
   # GET /people/1
