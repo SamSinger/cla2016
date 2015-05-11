@@ -21,7 +21,9 @@
     <tr>
       <th>First name</th>
       <th>Middle name</th>
-      <th>Last name</th>
+      <th> 
+        <%= sortable "last_name" %>
+      </th>
       <th>Email</th>
       <th>Office address</th>
       <th>Phone</th>
@@ -63,29 +65,38 @@
         <td><%= person.thursday_hours %></td>
         <td><%= person.friday_hours %></td>
         <td><%= link_to 'Show', person %></td>
-        <td><%= link_to 'Edit', edit_person_path(person) %></td>
-        <td><%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td>
+          <% if current_user %>
+            <%= link_to 'Edit', edit_person_path(person) %>
+          <% end %>
+        </td>
+        <td>
+          <% if current_user %>
+            <%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
 <br>
+<% if current_user %>
+  <%= link_to 'New Person', new_person_path %>
+  <hr>
+  <div class="well">
+    <%= form_tag import_people_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <br>
+      <%= submit_tag "Import Leads", class: 'btn btn-default' %>
+    <% end %>
+  </div>
 
-<%= link_to 'New Person', new_person_path %>
-<hr>
-<div class="well">
-  <%= form_tag import_people_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <br>
-    <%= submit_tag "Import Leads", class: 'btn btn-default' %>
-  <% end %>
-</div>
-
-<div class="well">
-  <h3>Download</h3>
-  <%= link_to "Download as CSV", people_path(format: "csv") %>
-</div>
+  <div class="well">
+    <h3>Download</h3>
+    <%= link_to "Download as CSV", people_path(format: "csv") %>
+  </div>
+<% end %>
 
 
 

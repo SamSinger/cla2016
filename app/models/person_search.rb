@@ -4,7 +4,7 @@ class PersonSearch
   def initialize(params)
     params ||= {} # if no params are received, params are set to empty hash
     @date_from = parsed_date(params[:date_from], 7.days.ago.to_date.to_s)
-    @date_to = parsed_date(params[:date_to], Date.today.to_s)
+    @date_to = parsed_date(params[:date_to], Date.tomorrow.to_s) #Date.today.to_s
   end
 
   def scope

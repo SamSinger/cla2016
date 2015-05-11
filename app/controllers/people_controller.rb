@@ -1,11 +1,12 @@
 class PeopleController < ApplicationController
   before_action :set_person, only: [:show, :edit, :update, :destroy]
+  helper_method :sort_column, :sort_direction
 
   # GET /people
   # GET /people.json
   def index
     @search = PersonSearch.new(params[:search])
-    @people = @search.scope
+    @people = @search.scope.order(sort_column + ' ' + sort_direction)
     
     respond_to do |format|
       format.html 
@@ -83,4 +84,13 @@ class PeopleController < ApplicationController
     def person_params
       params.require(:person).permit(:first_name, :middle_name, :last_name, :email, :office_address, :phone, :rank_description, :interest_areas, :department_id, :category_id, :au_user_name, :password_digest, :role, :monday_hours, :tuesday_hours, :wednesday_hours, :thursday_hours, :friday_hours)
     end
+
+    def sort_column
+      params[:sort] || "last_name"
+    end
+
+    def sort_direction
+      params[:direction] || "asc"
+    end
+
 end
