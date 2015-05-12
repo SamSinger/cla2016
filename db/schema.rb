@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150506143449) do
+ActiveRecord::Schema.define(version: 20150512174905) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -58,8 +58,6 @@ ActiveRecord::Schema.define(version: 20150506143449) do
     t.integer  "department_id"
     t.integer  "category_id"
     t.string   "au_user_name"
-    t.string   "password_digest"
-    t.string   "role"
     t.string   "monday_hours"
     t.string   "tuesday_hours"
     t.string   "wednesday_hours"
@@ -67,6 +65,7 @@ ActiveRecord::Schema.define(version: 20150506143449) do
     t.string   "friday_hours"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "instructional_areas"
   end
 
   create_table "users", force: true do |t|
