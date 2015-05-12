@@ -81,10 +81,10 @@
 </table>
 
 <br>
-
+<% if current_user %>
   <%= link_to 'New Person', new_person_path %>
   <hr>
-  <% if current_user %>
+ <% end %>  
     <div class="well">
       <%= form_tag import_people_path, multipart: true do %>
         <%= file_field_tag :file %>
@@ -92,7 +92,7 @@
         <%= submit_tag "Import Leads", class: 'btn btn-default' %>
       <% end %>
     </div>
-  <% end %>
+ 
 
   <div class="well">
     <h3>Download</h3>
