@@ -32,8 +32,7 @@
       <th>Department</th>
       <th>Category</th>
       <th>Au user name</th>
-      <th>Password digest</th>
-      <th>Role</th>
+      <th>Intructional areas</th>        
       <th>Monday hours</th>
       <th>Tuesday hours</th>
       <th>Wednesday hours</th>
@@ -66,12 +65,12 @@
         <td><%= link_to 'Show', person %></td>
         <td>
           <% if current_user %>
-            <%= link_to 'Edit', edit_person_path(person) %>
+            <%# link_to 'Edit', edit_person_path(person) %>
           <% end %>
         </td>
         <td>
           <% if current_user %>
-            <%= link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%# link_to 'Destroy', person, method: :delete, data: { confirm: 'Are you sure?' } %>
           <% end %>
         </td>
       </tr>
@@ -81,21 +80,21 @@
 
 <br>
 <% if current_user %>
-  <%= link_to 'New Person', new_person_path %>
+  <%# link_to 'New Person', new_person_path %>
   <hr>
  <% end %>  
     <div class="well">
       <%= form_tag import_people_path, multipart: true do %>
-        <%= file_field_tag :file %>
+        <%# file_field_tag :file %>
         <br>
-        <%= submit_tag "Import New People", class: 'btn btn-default' %>
+        <%# submit_tag "Import New People", class: 'btn btn-default' %>
       <% end %>
     </div>
  
 
   <div class="well">
     <h3>Download</h3>
-    <%= link_to "Download as CSV", people_path(format: "csv") %> 
+    <%# link_to "Download as CSV", people_path(format: "csv") %> 
   </div>
 
 
