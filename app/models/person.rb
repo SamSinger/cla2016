@@ -1,6 +1,9 @@
 class Person < ActiveRecord::Base
 
-  validates_presence_of :first_name, :last_name
+  #validates_presence_of :first_name, :last_name
+
+  belongs_to :department
+  belongs_to :category
 
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|

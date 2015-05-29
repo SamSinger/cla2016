@@ -1,4 +1,4 @@
-ActiveAdmin.register Person do
+ActiveAdmin.register User do
 
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
@@ -12,6 +12,6 @@ ActiveAdmin.register Person do
 #   permitted << :other if resource.something?
 #   permitted
 # end
-permit_params :first_name, :middle_name, :last_name, :email, :office_address, :phone, :rank_description, :interest_areas, :instructional_areas, :department_id, :category_id, :au_user_name, :monday_hours, :tuesday_hours, :wednesday_hours, :thursday_hours, :friday_hours
+
 
 end

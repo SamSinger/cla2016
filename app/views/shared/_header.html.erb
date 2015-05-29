@@ -3,10 +3,14 @@
 <!-- Navigation bar start -->
   <div class="row clearfix">
     <div class="col-md-12 column">
+      <a class="navbar-brand" href="/">
+        College of Liberal Arts | People Keeper
+      </a>
+
       <ul class="nav nav-pills">
-        <li>
+        <!-- <li>
           <%= link_to 'Home', welcome_home_path %>
-        </li>
+        </li> -->
         <!-- <li>
           <%= link_to 'About us', welcome_about_path %>
         </li> -->
@@ -14,9 +18,10 @@
           <%= link_to 'Contact', welcome_contact_path %>
         </li> -->
          <li>
-          <%= link_to 'People', people_path %>
+          <%# link_to 'People', people_path %>
         </li>  
         <% if current_user %>
+          <li><%= link_to 'Home', welcome_home_path %></li>
           <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %> </li>
         <% else %>
           <li> <%= link_to "Sign In", new_user_session_path %> </li>

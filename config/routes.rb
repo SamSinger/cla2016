@@ -15,5 +15,5 @@ Rails.application.routes.draw do
 
   get 'welcome/contact'
 
-  root :to => 'welcome#home'
+  root :to => 'people#edit'
 end

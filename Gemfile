@@ -42,6 +42,8 @@ gem 'spring',        group: :development
 group :development, :test do 
   gem 'rspec-rails', '~> 3.0'
   gem 'sqlite3'
+  gem 'pry'
+  gem 'pry-nav'
 end
  
 group :production do

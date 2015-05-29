@@ -1,5 +1,7 @@
 class PeopleController < ApplicationController
-  before_action :set_person, only: [:show, :edit, :update, :destroy]
+
+  # before_action :set_person, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
   helper_method :sort_column, :sort_direction
 
   # GET /people
@@ -23,6 +25,7 @@ class PeopleController < ApplicationController
   # GET /people/1
   # GET /people/1.json
   def show
+    @person = Person.find(params[:id])
   end
 
   # GET /people/new
@@ -31,7 +34,15 @@ class PeopleController < ApplicationController
   end
 
   # GET /people/1/edit
-  def edit
+  def edit  
+    @person = Person.find_by email: "#{current_user.email}"
+     
+      
+    # rescue => e
+    # flash[:error] = "This email address is not in our system. Please contact Sam Singer at singess@auburn.edu ."
+    #binding.pry
+    #@person = Person.find(51)   
+     
   end
 
   # POST /people
@@ -50,19 +61,29 @@ class PeopleController < ApplicationController
     end
   end
 
-  # PATCH/PUT /people/1
-  # PATCH/PUT /people/1.json
   def update
-    respond_to do |format|
-      if @person.update(person_params)
-        format.html { redirect_to @person, notice: 'Person was successfully updated.' }
-        format.json { render :show, status: :ok, location: @person }
-      else
-        format.html { render :edit }
-        format.json { render json: @person.errors, status: :unprocessable_entity }
-      end
+    @person = Person.find(params[:id])
+    if @person.update_attributes(person_params)
+      flash[:notice]="Person updated successfully."
+      redirect_to person_path
+    else
+      render('edit')
     end
   end
+
+  # PATCH/PUT /people/1
+  # PATCH/PUT /people/1.json
+  # def update
+  #   respond_to do |format|
+  #     if @person.update(person_params)
+  #      format.html { redirect_to @person, notice: 'Person was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @person }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @person.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /people/1
   # DELETE /people/1.json

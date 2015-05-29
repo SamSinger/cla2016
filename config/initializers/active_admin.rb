@@ -4,7 +4,7 @@ ActiveAdmin.setup do |config|
   # Set the title that is displayed on the main layout
   # for each of the active admin pages.
   #
-  config.site_title = "Cla2016"
+  config.site_title = "College of Liberal Arts People Keeper"
 
   # Set the link url for the title. For example, to take
   # users to your main site. Defaults to no link.
@@ -45,6 +45,21 @@ ActiveAdmin.setup do |config|
   #
   # This will ONLY change the title for the admin section. Other
   # namespaces will continue to use the main "site_title" configuration.
+
+
+config.namespace :admin do |admin|
+  admin.build_menu do |menu|
+    menu.add label: "The Application", url: "/", priority: 0
+
+    menu.add label: "Sites" do |sites|
+      # sites.add label: "College of Liberal Arts",   url: "http://cla.auburn.edu/cla", html_options: { target: :blank }
+      sites.add label: "College of Liberal Arts", url: "http://cla.auburn.edu/cla"
+      sites.add label: "Department of Art and Art History",   url: "http://cla.auburn.edu/art"
+    end
+  end
+end
+
+
 
   # == User Authentication
   #

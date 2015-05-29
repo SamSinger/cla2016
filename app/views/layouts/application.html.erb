@@ -9,7 +9,13 @@
 <body>
 
 <%= render 'shared/header' %>
-
+<% if current_user %>
+user is: <%= current_user.email %>
+<% end %>
+<%# link_to 'Edit', edit_person_path %>
+ 
+ 
+ 
 <%= yield %>
 
 </div>

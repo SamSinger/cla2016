@@ -5,6 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-50.times do |i|
-  Person.create!(first_name: "Sam#{i}", last_name: "Singer#{i}", office_address: "Haley")
-end
+ 5.times do |i|
+   Person.create!(first_name: "Sam#{i}", last_name: "Singer#{i}", office_address: "Haley")
+ end
+
+ 
+ #AdminUser.create!(:email => 'admin@example.com', :password => 'password', :password_confirmation => 'password')
