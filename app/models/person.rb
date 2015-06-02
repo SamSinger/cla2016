@@ -4,6 +4,7 @@ class Person < ActiveRecord::Base
 
   belongs_to :department
   belongs_to :category
+   
 
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|
